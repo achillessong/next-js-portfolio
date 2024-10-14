@@ -6,8 +6,9 @@ import { BsFillPersonLinesFill } from "react-icons/bs";
 import { FaGithub, FaLinkedinIn } from "react-icons/fa";
 import { HiOutlineChevronDoubleUp } from "react-icons/hi";
 import ContactImg from "public/assets/contact.jpg";
+import SuccessGif from "public/assets/success.gif";
 import { RotateLoader } from "react-spinners";
-import emailjs from "@emailjs/browser";
+import emailjs from 'emailjs-com';
 import { emConfig } from "src/utils/constants";
 import CustomModal from "./Modals";
 
@@ -49,7 +50,7 @@ const SuccessMsg = ({
 				isLoader={false}
 			>
 				<div>
-					<img className="scale-75" src="/assets/success.gif" id="spinner" alt="spinner" />
+					<Image className="scale-75" src={SuccessGif} id="spinner" alt="spinner" width={100} height={100}/>
 				</div>
 				<h3 className="text-center mt-2">Your message has been sent successfully</h3>
 			</CustomModal>
@@ -65,16 +66,17 @@ const Contact = () => {
 	const [loading, setLoading] = useState(false);
 	const [showSuccessMsg, setShowSuccessMsg] = useState(false);
 
-	const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+	const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 		setLoading(true);
 		const templateParams = {
-			name,
-			email,
-			subject,
-			message,
+			name: name,
+			email: email,
+			subject: subject,
+			message: message,
 		};
-		// emailjs.send(emConfig.serviceID, emConfig.templateID, templateParams, emConfig.publicID);
+		console.log(templateParams);	
+		await emailjs.send(emConfig.serviceID, emConfig.templateID, templateParams, emConfig.publicID);
 		setTimeout(() => {
 			setLoading(false);
 			setShowSuccessMsg(true);
@@ -111,8 +113,8 @@ const Contact = () => {
 									/>
 								</div>
 								<div>
-									<h2 className="py-2">Nosarumen Imuentinyan</h2>
-									<p className="text-xl mt-2">Front-End Developer</p>
+									<h2 className="py-2">{process.env.name}</h2>
+									<p className="text-xl mt-2">{process.env.role}</p>
 									<p className="py-4 text-lg">
 										I am available for freelance or full-time positions. Contact me and
 										let&apos;s talk.
@@ -125,18 +127,18 @@ const Contact = () => {
 									</div>
 									<div className="flex items-center justify-between py-4">
 										<a
-											href="https://www.linkedin.com/in/nosarumen-imuentinyan/"
+											href={process.env.linkedin}
 											target="_blank"
-											rel="noreferrer"
+											rel={process.env.name}
 										>
 											<div className="rounded-full shadow-lg shadow-gray-400 p-6 cursor-pointer hover:scale-110 ease-in hover:bg-secondary duration-300">
 												<FaLinkedinIn title="Linkedin" />
 											</div>
 										</a>
 										<a
-											href="https://github.com/Sir-Rumeh/"
+											href={process.env.gitHub}
 											target="_blank"
-											rel="noreferrer"
+											rel={process.env.name}
 										>
 											<div className="rounded-full shadow-lg shadow-gray-400 p-6 cursor-pointer hover:scale-110 ease-in hover:bg-secondary duration-300">
 												<FaGithub title="GitHub" />

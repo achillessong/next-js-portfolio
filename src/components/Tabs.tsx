@@ -67,7 +67,6 @@ export default function BasicTabs({ tabList, tabPanel, initialIndex }: BasicTabs
 					sx={{
 						width: "100%",
 						display: "flex",
-						height: "30rem",
 					}}
 				>
 					<Box>

@@ -26,15 +26,15 @@ const Main = () => {
 					<div data-aos="fade-right" data-aos-duration="1000">
 						<div className="flex items-center justify-between max-w-[330px] m-auto py-4">
 							<a
-								href="https://www.linkedin.com/in/eric-hi-flores"
+								href={process.env.linkedin}
 								target="_blank"
-								rel="noreferrer"
+								rel={process.env.name}
 							>
 								<div className="rounded-full shadow-lg shadow-gray-400 p-6 cursor-pointer hover:scale-110 ease-in  hover:bg-secondary duration-300">
 									<FaLinkedinIn title="Linkedin" />
 								</div>
 							</a>
-							<a href="https://github.com/achillessong" target="_blank" rel="noreferrer">
+							<a href={process.env.gitHub} target="_blank" rel={process.env.name}>
 								<div className="rounded-full shadow-lg shadow-gray-400 p-6 cursor-pointer hover:scale-110 ease-in hover:bg-secondary duration-300">
 									<FaGithub title="GitHub" />
 								</div>

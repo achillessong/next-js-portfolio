@@ -6,6 +6,23 @@ import Node from "public/assets/skills/node.png";
 import Git from "public/assets/skills/git.png";
 import Docker from "public/assets/skills/docker.png";
 import Tailwind from "public/assets/skills/tailwind.png";
+import Angular from "public/assets/skills/angular.svg";
+import AWS from "public/assets/skills/aws.png";
+import Django from "public/assets/skills/django.ico";
+import GraphQL from "public/assets/skills/graphql.svg";
+import Java from "public/assets/skills/java.png";
+import Kotlin from "public/assets/skills/kotlin.svg";
+import Laravel from "public/assets/skills/laravel.svg";
+import MongoDB from "public/assets/skills/mongo.png";
+import MySQL from "public/assets/skills/mysql.svg";
+import PHP from "public/assets/skills/php.svg";
+import PostgreSQL from "public/assets/skills/postgresql.svg";
+import Python from "public/assets/skills/python.ico";
+import Shopify from "public/assets/skills/shopify.png";
+import Spring from "public/assets/skills/spring.svg";
+import Vue from "public/assets/skills/vue.svg";
+import WordPress from "public/assets/skills/wordpress.svg";
+import ASP from "public/assets/skills/ASP.png";
 //
 import WhatsappClone from "public/assets/projects/whatsapp-web-clone/whatsapp.png";
 import Easymunch from "public/assets/projects/easy-munch/munch.png";
@@ -22,6 +39,14 @@ export const skills = [
 		image: NextJS,
 	},
 	{
+		name: "Angular",
+		image: Angular
+	},
+	{
+		name: "Vue.js",
+		image: Vue
+	},
+	{
 		name: "Tailwind CSS",
 		image: Tailwind,
 	},
@@ -34,8 +59,68 @@ export const skills = [
 		image: Javascript,
 	},
 	{
+		name: "Wordpress",
+		image: WordPress
+	},
+	{
+		name: "Shopify",
+		image: Shopify
+	},
+	{
 		name: "Node JS",
 		image: Node,
+	},
+	{
+		name: "Java",
+		image:Java
+	},
+	{
+		name: "Spring Boot",
+		image: Spring
+	},
+	{
+		name: "Kotlin",
+		image: Kotlin
+	},
+	{
+		name: "Python",
+		image: Python
+	},
+	{
+		name: "Django",
+		image: Django
+	},
+	{
+		name: "PHP",
+		image: PHP
+	},
+	{
+		name: "Laravel",
+		image: Laravel
+	},
+	{
+		name: "ASP.NET",
+		image: ASP
+	},
+	{
+		name: "GraphQL",
+		image: GraphQL
+	},
+	{
+		name: "MongoDB",
+		image: MongoDB
+	},
+	{
+		name: "MySQL",
+		image: MySQL
+	},
+	{
+		name: "PostgreSQL",
+		image: PostgreSQL
+	},
+	{
+		name: "AWS",
+		image: AWS
 	},
 	{
 		name: "Git",
@@ -75,7 +160,7 @@ export const projects = [
 ];
 
 export const emConfig = {
-	serviceID: "service_8hxsh8z",
-	templateID: "template_zcj3nzr",
-	publicID: "Thia5QgjBtrZ0NeIR",
+	serviceID: "service_w2crnz7",
+	templateID: "template_mlqpdzr",
+	publicID: "HHFrbGdG5ZOC5sQus",
 };

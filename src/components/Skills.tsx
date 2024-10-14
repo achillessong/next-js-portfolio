@@ -9,7 +9,7 @@ const Skills = () => {
 				<div data-aos="fade-down-right" data-aos-duration="1200">
 					<p className="text-xl tracking-widest uppercase text-primary">Skills</p>
 					<h2 className="py-4">Technologies I Use</h2>
-					<div className="grid grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-10 mt-2">
+					<div className="grid grid-cols-2 lg:grid-cols-5 gap-x-8 gap-y-4 mt-2">
 						{skills.map((skill) => {
 							return (
 								<div

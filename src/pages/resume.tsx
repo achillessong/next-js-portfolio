@@ -3,13 +3,14 @@ import Head from "next/head";
 import Link from "next/link";
 import Image from "next/image";
 import { FaGithub, FaLinkedinIn, FaDownload } from "react-icons/fa";
-import ResumeShot from "public/assets/Nosarumen_Imuentinyan_Resume.jpg";
+import ResumeShot_front from "public/assets/resume-front.png";
+import ResumeShot_back from "public/assets/resume-back.png";
 
 const ResumePdf = () => {
-	const resumePdfLink = "/assets/Nosarumen_Imuentinyan_Resume.pdf";
+	const resumePdfLink = "assets/EricRamonFlores.pdf";
 	return (
 		<>
-			<div className="relative">
+			<div className="relative w-full">
 				<div className="absolute top-0 right-0 z-10 flex items-center justify-center">
 					<a href={resumePdfLink} download className="p-0">
 						<div className="rounded-full shadow-lg shadow-gray-400 p-5 cursor-pointer scale-75 hover:scale-100 ease-in  hover:bg-secondary duration-300 ">
@@ -17,8 +18,10 @@ const ResumePdf = () => {
 						</div>
 					</a>
 				</div>
-				<Image src={ResumeShot} className="rounded-xl " alt="/" loading="lazy" />
+				
 			</div>
+			<Image src={ResumeShot_front} className="rounded-xl " alt="/" loading="lazy" />
+			<Image src={ResumeShot_back} className="rounded-xl mt-10" alt="/" loading="lazy" />
 		</>
 	);
 };
@@ -27,7 +30,7 @@ const Resume = () => {
 	return (
 		<>
 			<Head>
-				<title>Nosarumen | Resume</title>
+				<title>Eric Flores | Resume</title>
 				<meta
 					name="description"
 					content="I’m a front-end web developer specialized in usinf react, nextjs and typescript to build exceptional user interface."
@@ -38,16 +41,16 @@ const Resume = () => {
 			<div className="max-w-[940px] mx-auto p-2 pt-[120px]">
 				<h2 className="text-center">Resume</h2>
 				<div className="bg-[#d0d4d6] my-4 p-4 w-full flex justify-between items-center">
-					<h2 className="text-center">Nosarumen Imuentinyan</h2>
+					<h2 className="text-center">{process.env.name}</h2>
 					<div className="flex">
 						<a
-							href="https://www.linkedin.com/in/nosarumen-imuentinyan/"
+							href={process.env.linkedin}
 							target="_blank"
-							rel="noreferrer"
+							rel={process.env.name}
 						>
 							<FaLinkedinIn title="Linkedin" size={20} style={{ marginRight: "1rem" }} />
 						</a>
-						<a href="https://github.com/Sir-Rumeh/" target="_blank" rel="noreferrer">
+						<a href={process.env.gitHub} target="_blank" rel={process.env.name}>
 							<FaGithub title="GitHub" size={20} style={{ marginRight: "1rem" }} />
 						</a>
 					</div>
@@ -65,7 +68,7 @@ const Resume = () => {
 						<p>Analytics & Problem Solving</p>
 					</div>
 				</div>
-				<div className="max-w-full ">
+				<div className="max-w-full flex justify-center relative gap-2 w-full flex-wrap">
 					<ResumePdf />
 				</div>
 				<div className="mt-4">
