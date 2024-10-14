@@ -108,7 +108,6 @@ export default function BasicTabs({ tabList, tabPanel, initialIndex }: BasicTabs
 					sx={{
 						width: "100%",
 						display: "block",
-						height: "30rem",
 					}}
 				>
 					<Box>

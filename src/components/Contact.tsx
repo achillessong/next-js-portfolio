@@ -6,11 +6,12 @@ import { BsFillPersonLinesFill } from "react-icons/bs";
 import { FaGithub, FaLinkedinIn } from "react-icons/fa";
 import { HiOutlineChevronDoubleUp } from "react-icons/hi";
 import ContactImg from "public/assets/contact.jpg";
-import SuccessGif from "public/assets/success.gif";
 import { RotateLoader } from "react-spinners";
 import emailjs from 'emailjs-com';
 import { emConfig } from "src/utils/constants";
 import CustomModal from "./Modals";
+import { toast } from 'react-toastify';
+import validator from 'validator';
 
 const override = {
 	display: "block",
@@ -49,9 +50,9 @@ const SuccessMsg = ({
 				width="700px"
 				isLoader={false}
 			>
-				<div>
+				{/* <div>
 					<Image className="scale-75" src={SuccessGif} id="spinner" alt="spinner" width={100} height={100}/>
-				</div>
+				</div> */}
 				<h3 className="text-center mt-2">Your message has been sent successfully</h3>
 			</CustomModal>
 		</>
@@ -75,15 +76,50 @@ const Contact = () => {
 			subject: subject,
 			message: message,
 		};
-		console.log(templateParams);	
-		await emailjs.send(emConfig.serviceID, emConfig.templateID, templateParams, emConfig.publicID);
-		setTimeout(() => {
+		if(!(name && email && subject && message)){
 			setLoading(false);
-			setShowSuccessMsg(true);
-			setTimeout(() => {
-				setShowSuccessMsg(false);
-			}, 4000);
-		}, 1500);
+			toast.error('Please fill all the fields!', {
+				autoClose: 3000,
+			});
+		}
+		else{
+			if(!validator.isEmail(email)){
+				setLoading(false);
+				toast.error('Your Email is invalid! Please input correct email address!', {
+					autoClose: 3000,
+				});
+			}
+			else{
+				try{
+					const response = await emailjs.send(emConfig.serviceID, emConfig.templateID, templateParams, emConfig.publicID);
+					if(response.status === 200){
+						toast.success("Sent successfully!", {
+							autoClose: 1000
+						})
+					}
+					else{
+						toast.error("Sending error", {
+							autoClose: 2000,
+						})
+					}
+				}
+				catch(e){
+					toast.error("Sending error", {
+						autoClose: 2000,
+					})
+				}
+				
+				setLoading(false);
+			}
+		}
+		
+		// setTimeout(() => {
+		// 	setLoading(false);
+		// 	setShowSuccessMsg(true);
+		// 	setTimeout(() => {
+		// 		setShowSuccessMsg(false);
+		// 	}, 4000);
+		// }, 1500);
 	};
 
 	return (
