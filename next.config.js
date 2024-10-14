@@ -1,7 +1,5 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-	basePath: "/next-js-portfolio",
-	output: "export", 
 	reactStrictMode: true,
 	webpack: (config) => {
 		config.resolve.extensions.push(".ts", ".tsx");
