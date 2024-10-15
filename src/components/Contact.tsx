@@ -11,7 +11,7 @@ import emailjs from 'emailjs-com';
 import { emConfig } from "src/utils/constants";
 import CustomModal from "./Modals";
 import { toast } from 'react-toastify';
-import validator from 'validator';
+import { isValidEmail } from '../utils/validateEmail';
 
 const override = {
 	display: "block",
@@ -83,7 +83,7 @@ const Contact = () => {
 			});
 		}
 		else{
-			if(!validator.isEmail(email)){
+			if(!isValidEmail(email)){
 				setLoading(false);
 				toast.error('Your Email is invalid! Please input correct email address!', {
 					autoClose: 3000,
