@@ -3,6 +3,7 @@ import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Box from "@mui/material/Box";
 import { Children } from "react";
+import { NodeNextRequest } from "next/dist/server/base-http/node";
 
 interface TabPanelProps {
 	children?: React.ReactNode;
@@ -83,6 +84,7 @@ export default function BasicTabs({ tabList, tabPanel, initialIndex }: BasicTabs
 									{...a11yProps(index)}
 									key={item}
 									sx={{
+										background: "none",
 										color: "#44A8B3",
 										marginTop: `${index == 0 ? "" : "1rem"}`,
 										marginBottom: `${index == tabList.length - 1 ? "0.1rem" : ""}`,
