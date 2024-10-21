@@ -64,9 +64,9 @@ const Navbar = () => {
 						<li className="ml-10 text-sm uppercase hover:border-b hover:text-primary">
 							<Link href="/#experience">Experience</Link>
 						</li>
-						<li className="ml-10 text-sm uppercase hover:border-b hover:text-primary">
+						{/* <li className="ml-10 text-sm uppercase hover:border-b hover:text-primary">
 							<Link href="/#projects">Projects</Link>
-						</li>
+						</li> */}
 						<li className="ml-10 text-sm uppercase hover:border-b hover:text-primary">
 							<Link href="/#contact">Contact</Link>
 						</li>
